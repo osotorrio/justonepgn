@@ -49,3 +49,4 @@ Scenarios about duplicates
 GIVEN a PGN game duplicated
 WHEN the game is processed
 THEN the game is not stored in the database
+AND the game is not added to the PGN file
