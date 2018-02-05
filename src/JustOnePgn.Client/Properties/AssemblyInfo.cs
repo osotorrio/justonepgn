@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("JustOnePgn.IntegrationTests")]
+[assembly: AssemblyTitle("JustOnePgn.Client")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("JustOnePgn.IntegrationTests")]
+[assembly: AssemblyProduct("JustOnePgn.Client")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e7c80332-14e1-4c57-90e3-837836e873bc")]
+[assembly: Guid("4f9cdfe1-aed4-46c9-8818-0a671b8519f2")]
 
 // Version information for an assembly consists of the following four values:
 //
