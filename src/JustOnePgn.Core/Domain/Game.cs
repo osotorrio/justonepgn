@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JustOnePgn.Core.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace JustOnePgn.Core.Domain
 {
-    public class Game
+    public class Game : IGame
     {
         private readonly List<string> _metadata;
         private readonly StringBuilder _moves;
@@ -33,11 +34,11 @@ namespace JustOnePgn.Core.Domain
 
         public string Eco { get; private set; }
 
-        public int PlyCount { get { return Regex.Matches(Moves, PgnRegex.Moves).Count; } }
+        public int PlyCount => Regex.Matches(Moves, PgnRegex.Moves).Count;
 
-        public string Moves { get { return _moves.Replace("  ", " ").ToString(); }}
+        public string Moves => Regex.Replace(_moves.ToString(), @"\s{2,}", " ");
 
-        public string Metadata { get { return string.Join(Environment.NewLine, _metadata); } }
+        public string Metadata => string.Join(Environment.NewLine, _metadata);
 
         public void AddMoves(string line)
         {

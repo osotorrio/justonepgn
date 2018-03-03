@@ -58,7 +58,7 @@ namespace JustOnePgn.Core.Infrastructure
             return Regex.IsMatch(line, PgnRegex.Moves, RegexOptions.Singleline);
         }
 
-        private bool ContainsResultAtTheEnd(string line)
+        private static bool ContainsResultAtTheEnd(string line)
         {
             return Regex.IsMatch(line, PgnRegex.ResultAtTheEnd, RegexOptions.Singleline);
         }

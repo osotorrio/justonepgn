@@ -1,9 +1,8 @@
-﻿using System;
-using JustOnePgn.Core.Contracts;
+﻿using JustOnePgn.Core.Contracts;
 
 namespace JustOnePgn.Core.Services
 {
-    public class PgnManager
+    public class PgnManager : IPgnManager
     {
         private readonly IReadPgnFiles _reader;
         private readonly IWritePgnFiles _writer;

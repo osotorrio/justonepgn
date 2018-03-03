@@ -43,10 +43,12 @@
     <Compile Include="Contracts\IReadPgnFiles.cs" />
     <Compile Include="Contracts\IWritePgnFiles.cs" />
     <Compile Include="Domain\Game.cs" />
+    <Compile Include="Contracts\IGame.cs" />
     <Compile Include="Domain\PgnRegex.cs" />
     <Compile Include="Infrastructure\PgnReader.cs" />
     <Compile Include="Infrastructure\PgnWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Contracts\IPgnManager.cs" />
     <Compile Include="Services\PgnManager.cs" />
   </ItemGroup>
   <ItemGroup />
