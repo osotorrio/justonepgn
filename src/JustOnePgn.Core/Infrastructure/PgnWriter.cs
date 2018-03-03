@@ -1,14 +1,21 @@
 ﻿using JustOnePgn.Core.Contracts;
+using JustOnePgn.Core.Domain;
+using System.IO;
 
 namespace JustOnePgn.Core.Infrastructure
 {
     public class PgnWriter : IWritePgnFiles
     {
-        private object outputPgn;
+        private string _outputPgn;
 
-        public PgnWriter(object outputPgn)
+        public PgnWriter(string outputPgn)
         {
-            this.outputPgn = outputPgn;
+            _outputPgn = outputPgn;
+        }
+
+        public void WriteGame(Game game)
+        {
+            File.AppendAllText(_outputPgn, game.ToString());
         }
     }
 }

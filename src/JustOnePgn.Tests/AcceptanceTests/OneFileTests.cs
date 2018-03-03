@@ -20,7 +20,7 @@ namespace JustOnePgn.Tests.AcceptanceTests
             {
                 fixture = new TestFixture();
                 reader = new PgnReader(fixture.FolderWithOneFileOneGame);
-                writer = new PgnWriter(fixture.OutputPgn);
+                writer = new PgnWriter(fixture.PathResultedPgn);
             });
 
             "WHEN the file is read".x(() => 
@@ -31,7 +31,7 @@ namespace JustOnePgn.Tests.AcceptanceTests
 
             "THEN the file created contains one game".x(() => 
             {
-                fixture.ContentOfResultedPgn.ShouldBe(fixture.ExpectedOneGame);
+                fixture.ContentOfResultedPgn.ShouldBe(fixture.ContentOfExpectedOneGame);
             });
         }
     }

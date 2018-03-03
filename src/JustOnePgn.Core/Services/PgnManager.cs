@@ -16,7 +16,10 @@ namespace JustOnePgn.Core.Services
 
         public void Execute()
         {
-            throw new NotImplementedException();
+            _reader.ReadGame(game => 
+            {
+                _writer.WriteGame(game);
+            });
         }
     }
 }
