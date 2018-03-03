@@ -10,9 +10,10 @@ namespace JustOnePgn.Tests.AcceptanceTests
         internal static readonly string FolderWithOneFileOneGame = $@"{Root}\FolderWithOneFileOneGame";
         internal static readonly string FolderWithOneFileTwoGames = $@"{Root}\FolderWithOneFileTwoGames";
         internal static readonly string FolderWithTwoFiles = $@"{Root}\FolderWithTwoFiles";
-        internal static readonly string PathResultedPgn = $@"{Root}\ResultedFile\games.pgn";
+        internal static readonly string FolderWithNestedFiles = $@"{Root}\FolderWithNestedFiles";
 
         // Result
+        internal static readonly string PathResultedPgn = $@"{Root}\ResultedFile\games.pgn";
         internal static string ContentOfResultedPgn => File.ReadAllText(PathResultedPgn);
 
         // Expected

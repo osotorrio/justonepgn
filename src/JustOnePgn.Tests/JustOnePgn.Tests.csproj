@@ -74,6 +74,8 @@
   <ItemGroup>
     <None Include="AcceptanceTests\Files\ExpectedFiles\TwoGames.pgn" />
     <None Include="AcceptanceTests\Files\ExpectedFiles\OneGame.pgn" />
+    <None Include="AcceptanceTests\Files\FolderWithNestedFiles\game1.pgn" />
+    <None Include="AcceptanceTests\Files\FolderWithNestedFiles\nested\game2.pgn" />
     <None Include="AcceptanceTests\Files\FolderWithOneFileTwoGames\games.pgn" />
     <None Include="AcceptanceTests\Files\FolderWithOneFileOneGame\game.pgn" />
     <None Include="AcceptanceTests\Files\FolderWithTwoFiles\game2.pgn" />
