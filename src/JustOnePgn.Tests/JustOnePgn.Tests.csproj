@@ -65,16 +65,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcceptanceTests\MultipleFilesScenarios.cs" />
     <Compile Include="AcceptanceTests\OneFileScenarios.cs" />
     <Compile Include="AcceptanceTests\TestFixture.cs" />
     <Compile Include="AcceptanceTests\BaseSecenario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AcceptanceTests\Files\ExpectedFiles\OneFileTwoGames.pgn" />
-    <None Include="AcceptanceTests\Files\ExpectedFiles\OneFileOneGame.pgn" />
+    <None Include="AcceptanceTests\Files\ExpectedFiles\TwoGames.pgn" />
+    <None Include="AcceptanceTests\Files\ExpectedFiles\OneGame.pgn" />
     <None Include="AcceptanceTests\Files\FolderWithOneFileTwoGames\games.pgn" />
     <None Include="AcceptanceTests\Files\FolderWithOneFileOneGame\game.pgn" />
+    <None Include="AcceptanceTests\Files\FolderWithTwoFiles\game2.pgn" />
+    <None Include="AcceptanceTests\Files\FolderWithTwoFiles\game1.pgn" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

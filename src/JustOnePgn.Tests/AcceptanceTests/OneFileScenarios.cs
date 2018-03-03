@@ -1,16 +1,13 @@
 ﻿using JustOnePgn.Core.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xbehave;
 using Shouldly;
 using JustOnePgn.Core.Infrastructure;
 using JustOnePgn.Core.Services;
+using Xunit;
 
 namespace JustOnePgn.Tests.AcceptanceTests
 {
+    [Collection("Writting PGN file")]
     public class OneFileScenarios : BaseSecenario
     {
         [Scenario]
