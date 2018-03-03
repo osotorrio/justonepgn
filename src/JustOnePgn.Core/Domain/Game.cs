@@ -29,7 +29,7 @@ namespace JustOnePgn.Core.Domain
 
         public int PlyCount { get { return Regex.Matches(Moves, PgnRegex.Moves).Count; } }
 
-        public string Moves { get { return _moves.ToString(); }}
+        public string Moves { get { return _moves.Replace("  ", " ").ToString(); }}
 
         public string Metadata { get { return string.Join(Environment.NewLine, _metadata); } }
 
