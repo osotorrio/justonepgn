@@ -6,11 +6,16 @@ namespace JustOnePgn.Tests.AcceptanceTests
     {
         private static string Root = @"C:\Projects\Github\osotorrio\justonepgn\src\JustOnePgn.Tests\AcceptanceTests\Files";
 
-        internal readonly string FolderWithOneFileOneGame = $@"{Root}\FolderWithOneFileOneGame";
-        internal readonly string PathResultedPgn = $@"{Root}\ResultedFile\games.pgn";
+        // Games
+        internal static readonly string FolderWithOneFileOneGame = $@"{Root}\FolderWithOneFileOneGame";
+        internal static readonly string FolderWithOneFileTwoGames = $@"{Root}\FolderWithOneFileTwoGames";
+        internal static readonly string PathResultedPgn = $@"{Root}\ResultedFile\games.pgn";
 
-        internal string ContentOfResultedPgn => File.ReadAllText(PathResultedPgn);
+        // Result
+        internal static string ContentOfResultedPgn => File.ReadAllText(PathResultedPgn);
 
-        internal string ContentOfExpectedOneGame => File.ReadAllText($@"{Root}\ExpectedFiles\OneFileOneGame.pgn");
+        // Expected
+        internal static string ContentOfExpectedOneGame => File.ReadAllText($@"{Root}\ExpectedFiles\OneFileOneGame.pgn");
+        internal static string ContentOfExpectedTwoGames => File.ReadAllText($@"{Root}\ExpectedFiles\OneFileTwoGames.pgn");
     }
 }

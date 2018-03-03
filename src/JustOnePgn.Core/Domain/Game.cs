@@ -8,8 +8,14 @@ namespace JustOnePgn.Core.Domain
 {
     public class Game
     {
-        private readonly List<string> _metadata = new List<string>();
-        private readonly StringBuilder _moves = new StringBuilder();
+        private readonly List<string> _metadata;
+        private readonly StringBuilder _moves;
+
+        public Game()
+        {
+            _metadata = new List<string>();
+            _moves = new StringBuilder();
+        }
 
         public string Event { get; private set; }
 

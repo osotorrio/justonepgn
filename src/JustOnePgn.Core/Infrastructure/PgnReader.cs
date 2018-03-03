@@ -41,6 +41,7 @@ namespace JustOnePgn.Core.Infrastructure
                         if (ContainsResultAtTheEnd(line))
                         {
                             returnGame(game);
+                            game = new Game();
                         }
                     }
                 }

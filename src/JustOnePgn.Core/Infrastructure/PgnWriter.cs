@@ -1,5 +1,6 @@
 ﻿using JustOnePgn.Core.Contracts;
 using JustOnePgn.Core.Domain;
+using System;
 using System.IO;
 
 namespace JustOnePgn.Core.Infrastructure
@@ -15,7 +16,7 @@ namespace JustOnePgn.Core.Infrastructure
 
         public void WriteGame(Game game)
         {
-            File.AppendAllText(_outputPgn, game.ToString());
+            File.AppendAllText(_outputPgn, $"{game.ToString()}{Environment.NewLine}{Environment.NewLine}");
         }
     }
 }
