@@ -4,9 +4,9 @@
     {
         string Black { get; }
 
-        uint? BlackElo { get; }
+        int? BlackElo { get; }
 
-        ushort Date { get; }
+        int Date { get; }
 
         string Eco { get; }
 
@@ -22,7 +22,7 @@
 
         string White { get; }
 
-        uint? WhiteElo { get; }
+        int? WhiteElo { get; }
 
         void AddMetadata(string line);
 

@@ -20,7 +20,7 @@ namespace JustOnePgn.Core.Domain
 
         public string Event { get; private set; }
 
-        public ushort Date { get; private set; }
+        public int Date { get; private set; }
 
         public string White { get; private set; }
 
@@ -28,9 +28,9 @@ namespace JustOnePgn.Core.Domain
 
         public string Result { get; private set; }
 
-        public uint? WhiteElo { get; private set; }
+        public int? WhiteElo { get; private set; }
 
-        public uint? BlackElo { get; private set; }
+        public int? BlackElo { get; private set; }
 
         public string Eco { get; private set; }
 
@@ -75,7 +75,7 @@ namespace JustOnePgn.Core.Domain
 
                 if (tag.StartsWith("[Date "))
                 {
-                    if (ushort.TryParse(value.Split('.').First(), out ushort result))
+                    if (int.TryParse(value.Split('.').First(), out int result))
                     {
                         Date = result;
                     }
@@ -98,7 +98,7 @@ namespace JustOnePgn.Core.Domain
 
                 if (tag.StartsWith("[WhiteElo "))
                 {
-                    if (uint.TryParse(value, out uint result))
+                    if (int.TryParse(value, out int result))
                     {
                         WhiteElo = result;
                     }
@@ -106,7 +106,7 @@ namespace JustOnePgn.Core.Domain
 
                 if (tag.StartsWith("[BlackElo "))
                 {
-                    if (uint.TryParse(value, out uint result))
+                    if (int.TryParse(value, out int result))
                     {
                         BlackElo = result;
                     }
