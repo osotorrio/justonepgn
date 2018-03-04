@@ -7,7 +7,7 @@ using Xunit;
 
 namespace JustOnePgn.Tests.AcceptanceTests
 {
-    [Collection("Writting PGN file")]
+    [Collection("Create a single PGN file from multiple PGN files")]
     public class OneFileScenarios : BaseSecenario
     {
         [Scenario]
@@ -21,11 +21,11 @@ namespace JustOnePgn.Tests.AcceptanceTests
 
             "WHEN the file is read".x(() => 
             {
-                var pgn = new PgnManager(reader, writer);
-                pgn.Execute();
+                var manager = new PgnManager(reader, writer);
+                manager.Execute();
             });
 
-            "THEN the file created contains one game".x(() => 
+            "THEN the new file created contains one game".x(() => 
             {
                 TestFixture.ContentOfResultedPgn.ShouldBe(TestFixture.ContentOfExpectedOneGame);
             });
@@ -42,11 +42,11 @@ namespace JustOnePgn.Tests.AcceptanceTests
 
             "WHEN the file is read".x(() =>
             {
-                var pgn = new PgnManager(reader, writer);
-                pgn.Execute();
+                var manager = new PgnManager(reader, writer);
+                manager.Execute();
             });
 
-            "THEN the file created contains two games".x(() =>
+            "THEN the new file created contains two games".x(() =>
             {
                 TestFixture.ContentOfResultedPgn.ShouldBe(TestFixture.ContentOfExpectedTwoGames);
             });

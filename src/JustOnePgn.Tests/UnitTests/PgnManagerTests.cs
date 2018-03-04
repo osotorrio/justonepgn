@@ -25,7 +25,7 @@ namespace JustOnePgn.Tests.UnitTests
         }
 
         [Fact]
-        public void Exectute_should_call_WriteGame_with_a_Game()
+        public void Exectute_should_call_WriteGame_with_specific_Game()
         {
             // Arrange
             var expectedGame = new Game();

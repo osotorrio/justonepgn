@@ -7,7 +7,7 @@ using Xunit;
 
 namespace JustOnePgn.Tests.AcceptanceTests
 {
-    [Collection("Writting PGN file")]
+    [Collection("Create a single PGN file from multiple PGN files")]
     public class MultipleFilesScenarios : BaseSecenario
     {
         [Scenario]
@@ -19,13 +19,13 @@ namespace JustOnePgn.Tests.AcceptanceTests
                 writer = new PgnWriter(TestFixture.PathResultedPgn);
             });
 
-            "WHEN the file is read".x(() =>
+            "WHEN the files are read".x(() =>
             {
-                var pgn = new PgnManager(reader, writer);
-                pgn.Execute();
+                var manager = new PgnManager(reader, writer);
+                manager.Execute();
             });
 
-            "THEN the file created contains two games".x(() =>
+            "THEN the new file created contains two games".x(() =>
             {
                 TestFixture.ContentOfResultedPgn.ShouldBe(TestFixture.ContentOfExpectedTwoGames);
             });
@@ -36,17 +36,17 @@ namespace JustOnePgn.Tests.AcceptanceTests
         {
             "GIVEN a folder with two nested files where each file contains one game".x(() =>
             {
-                reader = new PgnReader(TestFixture.FolderWithTwoFiles);
+                reader = new PgnReader(TestFixture.FolderWithNestedFiles);
                 writer = new PgnWriter(TestFixture.PathResultedPgn);
             });
 
-            "WHEN the file is read".x(() =>
+            "WHEN the files are read".x(() =>
             {
-                var pgn = new PgnManager(reader, writer);
-                pgn.Execute();
+                var manager = new PgnManager(reader, writer);
+                manager.Execute();
             });
 
-            "THEN the file created contains two games".x(() =>
+            "THEN the new file created contains two games".x(() =>
             {
                 TestFixture.ContentOfResultedPgn.ShouldBe(TestFixture.ContentOfExpectedTwoGames);
             });
