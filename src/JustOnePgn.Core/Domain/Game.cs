@@ -18,6 +18,8 @@ namespace JustOnePgn.Core.Domain
             _moves = new StringBuilder();
         }
 
+        public int GameId => Moves.GetHashCode();
+
         public string Event { get; private set; }
 
         public int Date { get; private set; }
@@ -36,6 +38,7 @@ namespace JustOnePgn.Core.Domain
 
         public int PlyCount => Regex.Matches(Moves, PgnRegex.Moves).Count;
 
+        // TODO: Replaces ". " by "." Which one should be first replaced...\s{2,} or ._
         public string Moves => Regex.Replace(_moves.ToString(), @"\s{2,}", " ");
 
         public string Metadata => string.Join(Environment.NewLine, _metadata);

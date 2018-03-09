@@ -1,13 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2024
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustOnePgn.Tests", "src\JustOnePgn.Tests\JustOnePgn.Tests.csproj", "{867D3CB2-32ED-4E35-A980-EC5F614A40E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustOnePgn.Core", "src\JustOnePgn.Core\JustOnePgn.Core.csproj", "{8D1F8731-4111-49E3-BB0B-B4563BDD9FB2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustOnePgn.Client", "src\JustOnePgn.Client\JustOnePgn.Client.csproj", "{4F9CDFE1-AED4-46C9-8818-0A671B8519F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbScripts", "DbScripts", "{45F50506-0FD2-48BB-947C-122255BA44CA}"
+	ProjectSection(SolutionItems) = preProject
+		CreateGamesTable.sql = CreateGamesTable.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
