@@ -81,7 +81,8 @@
     <Compile Include="EndToEndTests\TestFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTests\GameTests.cs" />
-    <Compile Include="UnitTests\PgnManagerTests.cs" />
+    <Compile Include="UnitTests\PgnManagerScenarios.cs" />
+    <Compile Include="UnitTests\TestFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="EndToEndTests\Files\ExpectedFiles\OneGame.pgn" />
