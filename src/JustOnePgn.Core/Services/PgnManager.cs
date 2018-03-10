@@ -6,11 +6,13 @@ namespace JustOnePgn.Core.Services
     {
         private readonly IReadPgnFiles _reader;
         private readonly IWritePgnFiles _writer;
+        private readonly IGameRepository _repo;
 
-        public PgnManager(IReadPgnFiles reader, IWritePgnFiles writer)
+        public PgnManager(IReadPgnFiles reader, IWritePgnFiles writer, IGameRepository repo)
         {
             _reader = reader;
             _writer = writer;
+            _repo = repo;
         }
 
         public void Execute()
@@ -18,6 +20,13 @@ namespace JustOnePgn.Core.Services
             _reader.ReadGame(game => 
             {
                 _writer.WriteGame(game);
+
+                var isDuplicated = _repo.IsDuplicatedGame(game);
+
+                if (!isDuplicated)
+                {
+                    _repo.SaveGame(game);
+                }
             });
         }
     }

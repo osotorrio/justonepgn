@@ -4,6 +4,7 @@ using JustOnePgn.Core.Services;
 using Shouldly;
 using Xbehave;
 using Xunit;
+using NSubstitute;
 
 namespace JustOnePgn.Tests.AcceptanceTests
 {
@@ -11,17 +12,18 @@ namespace JustOnePgn.Tests.AcceptanceTests
     public class MultipleFilesScenarios : BaseSecenario
     {
         [Scenario]
-        public void TwoFilesTest(IReadPgnFiles reader, IWritePgnFiles writer)
+        public void TwoFilesTest(IReadPgnFiles reader, IWritePgnFiles writer, IGameRepository repo)
         {
             "GIVEN a folder with two files where each file contains one game".x(() =>
             {
+                repo = Substitute.For<IGameRepository>();
                 reader = new PgnReader(TestFixture.FolderWithTwoFiles);
                 writer = new PgnWriter(TestFixture.PathResultedPgn);
             });
 
             "WHEN the files are read".x(() =>
             {
-                var manager = new PgnManager(reader, writer);
+                var manager = new PgnManager(reader, writer, repo);
                 manager.Execute();
             });
 
@@ -32,17 +34,18 @@ namespace JustOnePgn.Tests.AcceptanceTests
         }
 
         [Scenario]
-        public void TwoNestedFilesTest(IReadPgnFiles reader, IWritePgnFiles writer)
+        public void TwoNestedFilesTest(IReadPgnFiles reader, IWritePgnFiles writer, IGameRepository repo)
         {
             "GIVEN a folder with two nested files where each file contains one game".x(() =>
             {
+                repo = Substitute.For<IGameRepository>();
                 reader = new PgnReader(TestFixture.FolderWithNestedFiles);
                 writer = new PgnWriter(TestFixture.PathResultedPgn);
             });
 
             "WHEN the files are read".x(() =>
             {
-                var manager = new PgnManager(reader, writer);
+                var manager = new PgnManager(reader, writer, repo);
                 manager.Execute();
             });
 

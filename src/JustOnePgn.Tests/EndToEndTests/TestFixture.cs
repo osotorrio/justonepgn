@@ -4,7 +4,7 @@ namespace JustOnePgn.Tests.AcceptanceTests
 {
     public class TestFixture
     {
-        private static string Root = @"C:\Projects\Github\osotorrio\justonepgn\src\JustOnePgn.Tests\AcceptanceTests\Files";
+        private static string Root = @"C:\Projects\Github\osotorrio\justonepgn\src\JustOnePgn.Tests\EndToEndTests\Files";
 
         // Games
         internal static readonly string FolderWithOneFileOneGame = $@"{Root}\FolderWithOneFileOneGame";

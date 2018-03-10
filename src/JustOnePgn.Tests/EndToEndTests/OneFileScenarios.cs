@@ -4,6 +4,7 @@ using Shouldly;
 using JustOnePgn.Core.Infrastructure;
 using JustOnePgn.Core.Services;
 using Xunit;
+using NSubstitute;
 
 namespace JustOnePgn.Tests.AcceptanceTests
 {
@@ -11,17 +12,18 @@ namespace JustOnePgn.Tests.AcceptanceTests
     public class OneFileScenarios : BaseSecenario
     {
         [Scenario]
-        public void OneGameTest(IReadPgnFiles reader, IWritePgnFiles writer)
+        public void OneGameTest(IReadPgnFiles reader, IWritePgnFiles writer, IGameRepository repo)
         {
             "GIVEN a single file with one game".x(() => 
             {
+                repo = Substitute.For<IGameRepository>();
                 reader = new PgnReader(TestFixture.FolderWithOneFileOneGame);
                 writer = new PgnWriter(TestFixture.PathResultedPgn);
             });
 
             "WHEN the file is read".x(() => 
             {
-                var manager = new PgnManager(reader, writer);
+                var manager = new PgnManager(reader, writer, repo);
                 manager.Execute();
             });
 
@@ -32,17 +34,18 @@ namespace JustOnePgn.Tests.AcceptanceTests
         }
 
         [Scenario]
-        public void TwoGamesTest(IReadPgnFiles reader, IWritePgnFiles writer)
+        public void TwoGamesTest(IReadPgnFiles reader, IWritePgnFiles writer, IGameRepository repo)
         {
             "GIVEN a single file with two games".x(() =>
             {
+                repo = Substitute.For<IGameRepository>();
                 reader = new PgnReader(TestFixture.FolderWithOneFileTwoGames);
                 writer = new PgnWriter(TestFixture.PathResultedPgn);
             });
 
             "WHEN the file is read".x(() =>
             {
-                var manager = new PgnManager(reader, writer);
+                var manager = new PgnManager(reader, writer, repo);
                 manager.Execute();
             });
 
