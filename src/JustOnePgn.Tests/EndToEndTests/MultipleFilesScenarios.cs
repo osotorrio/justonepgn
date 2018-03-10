@@ -6,10 +6,10 @@ using Xbehave;
 using Xunit;
 using NSubstitute;
 
-namespace JustOnePgn.Tests.AcceptanceTests
+namespace JustOnePgn.Tests.EndToEndTests
 {
     [Collection("Create a single PGN file from multiple PGN files")]
-    public class MultipleFilesScenarios : BaseSecenario
+    public class MultipleFilesScenarios : TestBase
     {
         [Scenario]
         public void TwoFilesTest(IReadPgnFiles reader, IWritePgnFiles writer, IGameRepository repo)

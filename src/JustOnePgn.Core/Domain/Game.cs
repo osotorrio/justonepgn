@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace JustOnePgn.Core.Domain
 {
-    public class Game : IGame
+    public class Game
     {
         private readonly List<string> _metadata;
         private readonly StringBuilder _moves;
@@ -22,7 +22,7 @@ namespace JustOnePgn.Core.Domain
 
         public string Event { get; private set; }
 
-        public int Date { get; private set; }
+        public int Year { get; private set; }
 
         public string White { get; private set; }
 
@@ -80,7 +80,7 @@ namespace JustOnePgn.Core.Domain
                 {
                     if (int.TryParse(value.Split('.').First(), out int result))
                     {
-                        Date = result;
+                        Year = result;
                     }
                 }
 

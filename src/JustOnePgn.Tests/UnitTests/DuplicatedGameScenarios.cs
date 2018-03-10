@@ -6,7 +6,7 @@ using Xbehave;
 
 namespace JustOnePgn.Tests.UnitTests
 {
-    public class PgnManagerScenarios
+    public class DuplicatedGameScenarios
     {
         [Scenario]
         public void AlwaysWriteGameTest(TestFixture fixture, Game game, IPgnManager manager)
@@ -47,7 +47,7 @@ namespace JustOnePgn.Tests.UnitTests
 
             "AND the game is not duplicated".x(() =>
             {
-                fixture.FakeRepo.IsDuplicatedGame(game).Returns(false);
+                fixture.FakeRepo.IsDuplicated(game).Returns(false);
             });
 
             "WHEN the game is processed".x(() =>
@@ -58,7 +58,7 @@ namespace JustOnePgn.Tests.UnitTests
 
             "THEN the game is stored in the database".x(() =>
             {
-                fixture.FakeRepo.Received().SaveGame(Arg.Is(game));
+                fixture.FakeRepo.Received().Save(Arg.Is(game));
             });
         }
 
@@ -75,7 +75,7 @@ namespace JustOnePgn.Tests.UnitTests
 
             "AND the game is duplicated".x(() =>
             {
-                fixture.FakeRepo.IsDuplicatedGame(game).Returns(true);
+                fixture.FakeRepo.IsDuplicated(game).Returns(true);
             });
 
             "WHEN the game is processed".x(() =>
@@ -86,7 +86,7 @@ namespace JustOnePgn.Tests.UnitTests
 
             "THEN the game is not stored in the database".x(() =>
             {
-                fixture.FakeRepo.DidNotReceive().SaveGame(Arg.Is(game));
+                fixture.FakeRepo.DidNotReceive().Save(Arg.Is(game));
             });
         }
     }

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
 
-namespace JustOnePgn.Tests.AcceptanceTests
+namespace JustOnePgn.Tests.EndToEndTests
 {
-    public abstract class BaseSecenario : IDisposable
+    public abstract class TestBase : IDisposable
     {
-        protected BaseSecenario()
+        protected TestBase()
         {
             // Do "global" initialization here; Called before every test method.
         }

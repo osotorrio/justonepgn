@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace JustOnePgn.Tests.AcceptanceTests
+namespace JustOnePgn.Tests.EndToEndTests
 {
     public class TestFixture
     {

@@ -5,8 +5,8 @@ namespace JustOnePgn.Core.Contracts
 {
     public interface IGameRepository
     {
-        void SaveGame(Game game);
+        void Save(Game game);
 
-        bool IsDuplicatedGame(Game game);
+        bool IsDuplicated(Game game);
     }
 }

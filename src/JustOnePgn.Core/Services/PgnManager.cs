@@ -21,11 +21,11 @@ namespace JustOnePgn.Core.Services
             {
                 _writer.WriteGame(game);
 
-                var isDuplicated = _repo.IsDuplicatedGame(game);
+                var isDuplicated = _repo.IsDuplicated(game);
 
                 if (!isDuplicated)
                 {
-                    _repo.SaveGame(game);
+                    _repo.Save(game);
                 }
             });
         }

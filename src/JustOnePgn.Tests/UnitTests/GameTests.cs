@@ -73,7 +73,7 @@ namespace JustOnePgn.Tests.UnitTests
 
             // Assert
             game.Event.ShouldBe("11th Kings Rapid women");
-            game.Date.ShouldBe(2017);
+            game.Year.ShouldBe(2017);
             game.White.ShouldBe("Muzychuk, Anna");
             game.Black.ShouldBe("Paehtz, Elisabeth");
             game.Result.ShouldBe("1-0");
