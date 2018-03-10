@@ -75,23 +75,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcceptanceTests\MultipleFilesScenarios.cs" />
-    <Compile Include="AcceptanceTests\OneFileScenarios.cs" />
-    <Compile Include="AcceptanceTests\TestFixture.cs" />
-    <Compile Include="AcceptanceTests\BaseSecenario.cs" />
+    <Compile Include="EndToEndTests\BaseSecenario.cs" />
+    <Compile Include="EndToEndTests\MultipleFilesScenarios.cs" />
+    <Compile Include="EndToEndTests\OneFileScenarios.cs" />
+    <Compile Include="EndToEndTests\TestFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTests\GameTests.cs" />
     <Compile Include="UnitTests\PgnManagerTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AcceptanceTests\Files\ExpectedFiles\TwoGames.pgn" />
-    <None Include="AcceptanceTests\Files\ExpectedFiles\OneGame.pgn" />
-    <None Include="AcceptanceTests\Files\FolderWithNestedFiles\game1.pgn" />
-    <None Include="AcceptanceTests\Files\FolderWithNestedFiles\nested\game2.pgn" />
-    <None Include="AcceptanceTests\Files\FolderWithOneFileTwoGames\games.pgn" />
-    <None Include="AcceptanceTests\Files\FolderWithOneFileOneGame\game.pgn" />
-    <None Include="AcceptanceTests\Files\FolderWithTwoFiles\game2.pgn" />
-    <None Include="AcceptanceTests\Files\FolderWithTwoFiles\game1.pgn" />
+    <None Include="EndToEndTests\Files\ExpectedFiles\OneGame.pgn" />
+    <None Include="EndToEndTests\Files\ExpectedFiles\TwoGames.pgn" />
+    <None Include="EndToEndTests\Files\FolderWithNestedFiles\game1.pgn" />
+    <None Include="EndToEndTests\Files\FolderWithNestedFiles\nested\game2.pgn" />
+    <None Include="EndToEndTests\Files\FolderWithOneFileOneGame\game.pgn" />
+    <None Include="EndToEndTests\Files\FolderWithOneFileTwoGames\games.pgn" />
+    <None Include="EndToEndTests\Files\FolderWithTwoFiles\game1.pgn" />
+    <None Include="EndToEndTests\Files\FolderWithTwoFiles\game2.pgn" />
+    <None Include="EndToEndTests\Files\ResultedFile\games.pgn" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -103,9 +104,7 @@
       <Name>JustOnePgn.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AcceptanceTests\Files\ResultedFile\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
