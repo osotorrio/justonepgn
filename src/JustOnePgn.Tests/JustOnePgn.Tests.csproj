@@ -88,6 +88,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTests\GameTests.cs" />
     <Compile Include="UnitTests\DuplicatedGameScenarios.cs" />
+    <Compile Include="UnitTests\PgnTests.cs" />
     <Compile Include="UnitTests\TestFixture.cs" />
   </ItemGroup>
   <ItemGroup>

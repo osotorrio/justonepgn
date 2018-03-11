@@ -1,6 +1,5 @@
 ﻿using JustOnePgn.Core.Contracts;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -9,13 +8,17 @@ namespace JustOnePgn.Core.Domain
 {
     public class Game
     {
-        private readonly List<string> _metadata;
-        private readonly StringBuilder _moves;
+        public Game() { }
 
-        public Game()
+        public Game(IMetadata metadata, IPgn pgn)
         {
-            _metadata = new List<string>();
-            _moves = new StringBuilder();
+            Metadata = string.Join(Environment.NewLine, metadata.Values);
+            Moves = pgn.Moves;
+
+            foreach (var tagPair in metadata.Values)
+            {
+                SetupTagPair(tagPair);
+            }
         }
 
         public int GameId => Moves.GetHashCode();
@@ -38,21 +41,9 @@ namespace JustOnePgn.Core.Domain
 
         public int PlyCount => Regex.Matches(Moves, PgnRegex.Moves).Count;
 
-        // TODO: Replaces ". " by "." Which one should be first replaced...\s{2,} or ._
-        public string Moves => Regex.Replace(_moves.ToString(), @"\s{2,}", " ");
+        public string Moves { get; set; }
 
-        public string Metadata => string.Join(Environment.NewLine, _metadata);
-
-        public void AddMoves(string line)
-        {
-            _moves.Append(line);
-        }
-
-        public void AddMetadata(string line)
-        {
-            _metadata.Add(line);
-            SetupTagPair(line);
-        }
+        public string Metadata { get; set; }
 
         public override string ToString()
         {

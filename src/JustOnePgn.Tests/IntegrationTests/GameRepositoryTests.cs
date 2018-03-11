@@ -49,7 +49,7 @@ namespace JustOnePgn.Tests.IntegrationTests
             var game = fixture.GetGameById(fixture.Game.GameId);
 
             game.ShouldNotBeNull();
-            // game.GameId.ShouldBe(fixture.Game.GameId);
+            game.GameId.ShouldBe(fixture.Game.GameId);
             game.Event.ShouldBe(fixture.Game.Event);
             game.White.ShouldBe(fixture.Game.White);
             game.Black.ShouldBe(fixture.Game.Black);
@@ -57,9 +57,9 @@ namespace JustOnePgn.Tests.IntegrationTests
             game.WhiteElo.ShouldBe(fixture.Game.WhiteElo);
             game.BlackElo.ShouldBe(fixture.Game.BlackElo);
             game.Eco.ShouldBe(fixture.Game.Eco);
-            //game.PlyCount.ShouldBe(fixture.Game.PlyCount);
-            //game.Metadata.ShouldBe(fixture.Game.Metadata);
-            //game.Moves.ShouldBe(fixture.Game.Moves);
+            game.PlyCount.ShouldBe(fixture.Game.PlyCount);
+            game.Metadata.ShouldBe(fixture.Game.Metadata);
+            game.Moves.ShouldBe(fixture.Game.Moves);
         }
     }
 }

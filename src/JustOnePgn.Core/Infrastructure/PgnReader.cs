@@ -17,7 +17,8 @@ namespace JustOnePgn.Core.Infrastructure
 
         public void ReadGame(Action<Game> returnGame)
         {
-            var game = new Game();
+            var metadata = new Metadata();
+            var pgn = new Pgn();
             var files = Directory.EnumerateFiles(_folder, "*.pgn", SearchOption.AllDirectories);
 
             foreach (var file in files)
@@ -30,18 +31,19 @@ namespace JustOnePgn.Core.Infrastructure
                     {
                         if (ContainsMetadata(line))
                         {
-                            game.AddMetadata(line);
+                            metadata.Add(line);
                         }
 
                         if (ContainsMoves(line))
                         {
-                            game.AddMoves(line);
+                            pgn.Add(line);
                         }
 
                         if (ContainsResultAtTheEnd(line))
                         {
-                            returnGame(game);
-                            game = new Game();
+                            returnGame(new Game(metadata, pgn));
+                            metadata = new Metadata();
+                            pgn = new Pgn();
                         }
                     }
                 }

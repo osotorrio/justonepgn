@@ -47,6 +47,10 @@
     <Compile Include="Contracts\IReadPgnFiles.cs" />
     <Compile Include="Contracts\IWritePgnFiles.cs" />
     <Compile Include="Domain\Game.cs" />
+    <Compile Include="Contracts\IMetadata.cs" />
+    <Compile Include="Contracts\IPgn.cs" />
+    <Compile Include="Domain\Metadata.cs" />
+    <Compile Include="Domain\Pgn.cs" />
     <Compile Include="Domain\PgnRegex.cs" />
     <Compile Include="Infrastructure\GameRepository.cs" />
     <Compile Include="Infrastructure\PgnReader.cs" />
