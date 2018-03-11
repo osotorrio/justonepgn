@@ -17,7 +17,7 @@ CREATE TABLE [dbo].[Games](
 	[Result] [varchar](10) NOT NULL,
 	[WhiteElo] [int] NULL,
 	[BlackElo] [int] NULL,
-	[Eco] [char](3) NOT NULL,
+	[Eco] [char](10) NOT NULL,
 	[PlyCount] [int] NOT NULL,
 	[Metadata] [varchar](500) NOT NULL,
 	[Moves] [varchar](5000) NOT NULL,
