@@ -16,7 +16,7 @@ namespace JustOnePgn.Tests.UnitTests
             var spaces = GenerateRandomSpaces();
 
             var line = $"1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3 dxc4 5.Bg2{spaces}c6";
-            var withoutSpaces = "1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3 dxc4 5.Bg2 c6";
+            var withoutSpaces = "1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3 dxc4 5.Bg2 c6 ";
 
             // Act
             pgn.Add(line);
@@ -33,7 +33,7 @@ namespace JustOnePgn.Tests.UnitTests
             var spaces = GenerateRandomSpaces();
 
             var line = $"1. d4 Nf6 2. c4 e6 3. Nf3 d5 4. g3 dxc4 5. Bg2 c6";
-            var withoutSpaces = "1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3 dxc4 5.Bg2 c6";
+            var withoutSpaces = "1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3 dxc4 5.Bg2 c6 ";
 
             // Act
             pgn.Add(line);
@@ -50,7 +50,7 @@ namespace JustOnePgn.Tests.UnitTests
             var spaces = GenerateRandomSpaces();
 
             var line = $"1. d4 Nf6 2. c4 e6 3. Nf3 d5 4. g3 dxc4 5. Bg2 c6 *";
-            var withDraw = "1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3 dxc4 5.Bg2 c6 1/2-1/2";
+            var withDraw = "1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3 dxc4 5.Bg2 c6 1/2-1/2 ";
 
             // Act
             pgn.Add(line);
