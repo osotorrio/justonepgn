@@ -6,7 +6,7 @@ using Xbehave;
 
 namespace JustOnePgn.Tests.UnitTests
 {
-    public class DuplicatedGameScenarios
+    public class DuplicationScenarios
     {
         [Scenario]
         public void AlwaysWriteGameTest(TestFixture fixture, Game game, IPgnManager manager)
@@ -14,7 +14,7 @@ namespace JustOnePgn.Tests.UnitTests
             "GIVEN a game".x(() => 
             {
                 fixture = new TestFixture();
-                game = new Game();
+                game = new Game(new Metadata(), fixture.PgnWithAtLeast15Moves);
             });
 
             "WHEN the game gets read".x(() => 
@@ -37,11 +37,11 @@ namespace JustOnePgn.Tests.UnitTests
         [Scenario]
         public void NotDuplicatedGameTest(TestFixture fixture, Game game, IPgnManager manager)
         {
-            "GIVEN a game".x(() => 
+            "GIVEN a game with at least 15 moves".x(() => 
             {
                 fixture = new TestFixture();
-
-                game = new Game();
+                
+                game = new Game(new Metadata(), fixture.PgnWithAtLeast15Moves);
                 fixture.FakeReader.ReadGame(Arg.Invoke(game));
             });
 
@@ -63,13 +63,41 @@ namespace JustOnePgn.Tests.UnitTests
         }
 
         [Scenario]
+        public void NotDuplicatedGameTooShortTest(TestFixture fixture, Game game, IPgnManager manager)
+        {
+            "GIVEN a game with less than 15 moves".x(() =>
+            {
+                fixture = new TestFixture();
+
+                game = new Game(new Metadata(), fixture.PgnWithLessThan15Moves);
+                fixture.FakeReader.ReadGame(Arg.Invoke(game));
+            });
+
+            "AND the game is not duplicated".x(() =>
+            {
+                fixture.FakeRepo.IsDuplicated(game).Returns(false);
+            });
+
+            "WHEN the game is processed".x(() =>
+            {
+                manager = new PgnManager(fixture.FakeReader, fixture.FakeWriter, fixture.FakeRepo);
+                manager.Execute(g => { });
+            });
+
+            "THEN the game is stored in the database".x(() =>
+            {
+                fixture.FakeRepo.DidNotReceive().Save(Arg.Is(game));
+            });
+        }
+
+        [Scenario]
         public void DuplicatedGameTest(TestFixture fixture, Game game, IPgnManager manager)
         {
             "GIVEN a game".x(() =>
             {
                 fixture = new TestFixture();
 
-                game = new Game();
+                game = new Game(new Metadata(), fixture.PgnWithAtLeast15Moves);
                 fixture.FakeReader.ReadGame(Arg.Invoke(game));
             });
 

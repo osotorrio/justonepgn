@@ -25,7 +25,7 @@ namespace JustOnePgn.Core.Services
 
                 var isDuplicated = _repo.IsDuplicated(game);
 
-                if (!isDuplicated)
+                if (!isDuplicated && game.PlyCount >= 30)
                 {
                     _repo.Save(game);
                 }
