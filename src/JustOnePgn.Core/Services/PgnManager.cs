@@ -21,12 +21,13 @@ namespace JustOnePgn.Core.Services
         {
             _reader.ReadGame(game =>
             {
-                _writer.WriteGame(game);
 
                 var isDuplicated = _repo.IsDuplicated(game);
 
                 if (!isDuplicated && game.PlyCount >= 30)
                 {
+                    // TODO: do it transactional
+                    _writer.WriteGame(game);
                     _repo.Save(game);
                 }
 
