@@ -20,7 +20,7 @@ CREATE TABLE [dbo].[Games](
 	[Eco] [char](3) NOT NULL,
 	[PlyCount] [int] NOT NULL,
 	[Metadata] [varchar](500) NOT NULL,
-	[Moves] [varchar](2000) NOT NULL,
+	[Moves] [varchar](5000) NOT NULL,
  CONSTRAINT [PK_Games] PRIMARY KEY CLUSTERED 
 (
 	[GameId] ASC

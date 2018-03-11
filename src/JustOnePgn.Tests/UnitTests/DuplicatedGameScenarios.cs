@@ -25,7 +25,7 @@ namespace JustOnePgn.Tests.UnitTests
             "AND the game is processed".x(() => 
             {
                 manager = new PgnManager(fixture.FakeReader, fixture.FakeWriter, fixture.FakeRepo);
-                manager.Execute();
+                manager.Execute(g => { });
             });
 
             "THEN the same game is written".x(() => 
@@ -53,7 +53,7 @@ namespace JustOnePgn.Tests.UnitTests
             "WHEN the game is processed".x(() =>
             {
                 manager = new PgnManager(fixture.FakeReader, fixture.FakeWriter, fixture.FakeRepo);
-                manager.Execute();
+                manager.Execute(g => { });
             });
 
             "THEN the game is stored in the database".x(() =>
@@ -81,7 +81,7 @@ namespace JustOnePgn.Tests.UnitTests
             "WHEN the game is processed".x(() =>
             {
                 manager = new PgnManager(fixture.FakeReader, fixture.FakeWriter, fixture.FakeRepo);
-                manager.Execute();
+                manager.Execute(g => { });
             });
 
             "THEN the game is not stored in the database".x(() =>

@@ -1,7 +1,10 @@
-﻿namespace JustOnePgn.Core.Contracts
+﻿using JustOnePgn.Core.Domain;
+using System;
+
+namespace JustOnePgn.Core.Contracts
 {
     public interface IPgnManager
     {
-        void Execute();
+        void Execute(Action<Game> callback);
     }
 }

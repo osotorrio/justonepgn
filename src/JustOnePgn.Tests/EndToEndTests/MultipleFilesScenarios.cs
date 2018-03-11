@@ -24,7 +24,7 @@ namespace JustOnePgn.Tests.EndToEndTests
             "WHEN the files are read".x(() =>
             {
                 var manager = new PgnManager(reader, writer, repo);
-                manager.Execute();
+                manager.Execute(g => { });
             });
 
             "THEN the new file created contains two games".x(() =>
@@ -46,7 +46,7 @@ namespace JustOnePgn.Tests.EndToEndTests
             "WHEN the files are read".x(() =>
             {
                 var manager = new PgnManager(reader, writer, repo);
-                manager.Execute();
+                manager.Execute(g => { });
             });
 
             "THEN the new file created contains two games".x(() =>

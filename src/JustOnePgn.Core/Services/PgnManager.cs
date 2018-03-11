@@ -1,4 +1,6 @@
 ﻿using JustOnePgn.Core.Contracts;
+using JustOnePgn.Core.Domain;
+using System;
 
 namespace JustOnePgn.Core.Services
 {
@@ -15,9 +17,9 @@ namespace JustOnePgn.Core.Services
             _repo = repo;
         }
 
-        public void Execute()
+        public void Execute(Action<Game> callback)
         {
-            _reader.ReadGame(game => 
+            _reader.ReadGame(game =>
             {
                 _writer.WriteGame(game);
 
@@ -27,6 +29,8 @@ namespace JustOnePgn.Core.Services
                 {
                     _repo.Save(game);
                 }
+
+                callback(game);
             });
         }
     }
