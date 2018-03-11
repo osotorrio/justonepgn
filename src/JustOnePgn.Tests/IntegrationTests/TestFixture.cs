@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using JustOnePgn.Core.Contracts;
 using JustOnePgn.Core.Domain;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,9 +10,17 @@ namespace JustOnePgn.Tests.IntegrationTests
     {
         internal static string ConnectionString => "Data Source=LENOVO-PC;Initial Catalog=ChessGamesDBTest;Integrated Security=True";
 
-        internal Game Game { get; private set; }
+        internal Game GetEmptyGame()
+        {
+            var pgn = new Pgn();
+            pgn.Add("1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Be3 e5 7.Nb3 Be7 8.f3 Be6");
+            pgn.Add("9.Qd2 O-O 10.O-O-O a5 11.a4 Nc6 12.g4 Nb4 13.Kb1 Qc7 14.Bb5 Rac8 15.g5 Nh5");
+            pgn.Add("16.Rhg1 g6 17.Qf2 Bd8 18.Qd2 Be7 19.Qf2 Bd8 20.Qd2 Be7 21.Qf2 1/2-1/2");
 
-        internal TestFixture()
+            return new Game(new Metadata(), pgn);
+        }
+
+        internal Game GetGame()
         {
             var metadata = new Metadata();
             metadata.Add("[Event \"Gibraltar Masters 2017\"]");
@@ -31,7 +40,7 @@ namespace JustOnePgn.Tests.IntegrationTests
             pgn.Add("9.Qd2 O-O 10.O-O-O a5 11.a4 Nc6 12.g4 Nb4 13.Kb1 Qc7 14.Bb5 Rac8 15.g5 Nh5");
             pgn.Add("16.Rhg1 g6 17.Qf2 Bd8 18.Qd2 Be7 19.Qf2 Bd8 20.Qd2 Be7 21.Qf2 1/2-1/2");
 
-            Game = new Game(metadata, pgn);
+            return new Game(metadata, pgn);
         }
 
         internal Game GetGameById(int gameId)

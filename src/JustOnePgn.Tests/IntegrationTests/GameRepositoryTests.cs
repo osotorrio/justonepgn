@@ -1,4 +1,5 @@
-﻿using JustOnePgn.Core.Infrastructure;
+﻿using JustOnePgn.Core.Domain;
+using JustOnePgn.Core.Infrastructure;
 using Shouldly;
 using Xunit;
 
@@ -14,7 +15,7 @@ namespace JustOnePgn.Tests.IntegrationTests
             var repo = new GameRepository(TestFixture.ConnectionString);
 
             // Act
-            var result = repo.IsDuplicated(fixture.Game);
+            var result = repo.IsDuplicated(fixture.GetGame());
 
             // Assert
             result.ShouldBeFalse();
@@ -25,11 +26,11 @@ namespace JustOnePgn.Tests.IntegrationTests
         {
             // Arrange
             var fixture = new TestFixture();
-            fixture.InsertGame(fixture.Game);
+            fixture.InsertGame(fixture.GetGame());
             var repo = new GameRepository(TestFixture.ConnectionString);
 
             // Act
-            var result = repo.IsDuplicated(fixture.Game);
+            var result = repo.IsDuplicated(fixture.GetGame());
 
             // Assert
             result.ShouldBeTrue();
@@ -40,26 +41,55 @@ namespace JustOnePgn.Tests.IntegrationTests
         {
             // Arrange
             var fixture = new TestFixture();
+            var expectedGame = fixture.GetGame();
             var repo = new GameRepository(TestFixture.ConnectionString);
 
             // Act
-            repo.Save(fixture.Game);
+            repo.Save(expectedGame);
 
             // Assert
-            var game = fixture.GetGameById(fixture.Game.GameId);
+            var actualGame = fixture.GetGameById(expectedGame.GameId);
 
-            game.ShouldNotBeNull();
-            game.GameId.ShouldBe(fixture.Game.GameId);
-            game.Event.ShouldBe(fixture.Game.Event);
-            game.White.ShouldBe(fixture.Game.White);
-            game.Black.ShouldBe(fixture.Game.Black);
-            game.Result.ShouldBe(fixture.Game.Result);
-            game.WhiteElo.ShouldBe(fixture.Game.WhiteElo);
-            game.BlackElo.ShouldBe(fixture.Game.BlackElo);
-            game.Eco.ShouldBe(fixture.Game.Eco);
-            game.PlyCount.ShouldBe(fixture.Game.PlyCount);
-            game.Metadata.ShouldBe(fixture.Game.Metadata);
-            game.Moves.ShouldBe(fixture.Game.Moves);
+            actualGame.ShouldNotBeNull();
+            actualGame.GameId.ShouldBe(expectedGame.GameId);
+            actualGame.Event.ShouldBe(expectedGame.Event);
+            actualGame.White.ShouldBe(expectedGame.White);
+            actualGame.Black.ShouldBe(expectedGame.Black);
+            actualGame.Result.ShouldBe(expectedGame.Result);
+            actualGame.WhiteElo.ShouldBe(expectedGame.WhiteElo);
+            actualGame.BlackElo.ShouldBe(expectedGame.BlackElo);
+            actualGame.Eco.ShouldBe(expectedGame.Eco);
+            actualGame.PlyCount.ShouldBe(expectedGame.PlyCount);
+            actualGame.Metadata.ShouldBe(expectedGame.Metadata);
+            actualGame.Moves.ShouldBe(expectedGame.Moves);
+        }
+
+        [Fact]
+        public void Save_should_store_an_empty_game()
+        {
+            // Arrange
+            var fixture = new TestFixture();
+            var expectedGame = fixture.GetEmptyGame();
+            var repo = new GameRepository(TestFixture.ConnectionString);
+
+            // Act
+            repo.Save(expectedGame);
+
+            // Assert
+            var actualGame = fixture.GetGameById(expectedGame.GameId);
+
+            actualGame.ShouldNotBeNull();
+            actualGame.GameId.ShouldBe(expectedGame.GameId);
+            actualGame.Event.ShouldBe(expectedGame.Event);
+            actualGame.White.ShouldBe(expectedGame.White);
+            actualGame.Black.ShouldBe(expectedGame.Black);
+            actualGame.Result.ShouldBe(expectedGame.Result);
+            actualGame.WhiteElo.ShouldBe(expectedGame.WhiteElo);
+            actualGame.BlackElo.ShouldBe(expectedGame.BlackElo);
+            actualGame.Eco.ShouldBe(expectedGame.Eco);
+            actualGame.PlyCount.ShouldBe(expectedGame.PlyCount);
+            actualGame.Metadata.ShouldBe(expectedGame.Metadata);
+            actualGame.Moves.ShouldBe(expectedGame.Moves);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace JustOnePgn.Core.Domain
 
         public string Event { get; private set; }
 
-        public int Year { get; private set; }
+        public int? Year { get; private set; }
 
         public string White { get; private set; }
 
@@ -65,7 +65,7 @@ namespace JustOnePgn.Core.Domain
             {
                 if (tag.StartsWith("[Event "))
                 {
-                    Event = value ?? string.Empty;
+                    Event = value;
                 }
 
                 if (tag.StartsWith("[Date "))
@@ -78,17 +78,17 @@ namespace JustOnePgn.Core.Domain
 
                 if (tag.StartsWith("[White "))
                 {
-                    White = value ?? string.Empty;
+                    White = value;
                 }
 
                 if (tag.StartsWith("[Black "))
                 {
-                    Black = value ?? string.Empty;
+                    Black = value;
                 }
 
                 if (tag.StartsWith("[Result "))
                 {
-                    Result = value ?? string.Empty;
+                    Result = value;
                 }
 
                 if (tag.StartsWith("[WhiteElo "))
@@ -107,9 +107,10 @@ namespace JustOnePgn.Core.Domain
                     }
                 }
 
+                // TODO: Replace empty with own ECO detector (new nuget?).
                 if (tag.StartsWith("[ECO "))
                 {
-                    Eco = value ?? string.Empty; // TODO: Replace empty for my own ECO detector (nuget?).
+                    Eco = value;
                 }
             }
         }
