@@ -56,6 +56,7 @@ namespace JustOnePgn.Core.Domain
             return pgn.ToString();
         }
 
+        // Move away this logic from this class. Chain responsibility or Factory pattern?
         private void SetupTagPair(string tag)
         {
             var value = Regex.Match(tag, "\"" + "(.*?)" + "\"").Value.Trim('"');
@@ -64,7 +65,7 @@ namespace JustOnePgn.Core.Domain
             {
                 if (tag.StartsWith("[Event "))
                 {
-                    Event = value;
+                    Event = value ?? string.Empty;
                 }
 
                 if (tag.StartsWith("[Date "))
@@ -77,17 +78,17 @@ namespace JustOnePgn.Core.Domain
 
                 if (tag.StartsWith("[White "))
                 {
-                    White = value;
+                    White = value ?? string.Empty;
                 }
 
                 if (tag.StartsWith("[Black "))
                 {
-                    Black = value;
+                    Black = value ?? string.Empty;
                 }
 
                 if (tag.StartsWith("[Result "))
                 {
-                    Result = value;
+                    Result = value ?? string.Empty;
                 }
 
                 if (tag.StartsWith("[WhiteElo "))
@@ -108,7 +109,7 @@ namespace JustOnePgn.Core.Domain
 
                 if (tag.StartsWith("[ECO "))
                 {
-                    Eco = value;
+                    Eco = value ?? string.Empty; // TODO: Replace empty for my own ECO detector (nuget?).
                 }
             }
         }

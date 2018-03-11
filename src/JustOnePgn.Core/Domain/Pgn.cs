@@ -10,7 +10,7 @@ namespace JustOnePgn.Core.Domain
 
         public void Add(string line)
         {
-            _moves.Append(line);
+            _moves.Append($"{line.Trim()} ");
         }
 
         public string Moves => Regex
