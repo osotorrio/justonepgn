@@ -54,27 +54,5 @@ namespace JustOnePgn.Tests.EndToEndTests
                 TestFixture.ContentOfResultedPgn.ShouldBe(TestFixture.ContentOfExpectedTwoGames);
             });
         }
-
-        [Scenario]
-        public void WrongResultNotationTest(IReadPgnFiles reader, IWritePgnFiles writer, IGameRepository repo)
-        {
-            "GIVEN a single file with wrong result notation".x(() =>
-            {
-                repo = Substitute.For<IGameRepository>();
-                reader = new PgnReader(TestFixture.FolderWithOneFileWrongNotation);
-                writer = new PgnWriter(TestFixture.PathResultedPgn);
-            });
-
-            "WHEN the file is read".x(() =>
-            {
-                var manager = new PgnManager(reader, writer, repo);
-                manager.Execute(g => { });
-            });
-
-            "THEN the new file created contains two games".x(() =>
-            {
-                TestFixture.ContentOfResultedPgn.ShouldBe(TestFixture.ContentOfWrongResultGames);
-            });
-        }
     }
 }

@@ -82,6 +82,7 @@
     <Compile Include="EndToEndTests\MultipleFilesScenarios.cs" />
     <Compile Include="EndToEndTests\OneFileScenarios.cs" />
     <Compile Include="EndToEndTests\TestFixture.cs" />
+    <Compile Include="EndToEndTests\WrongNotationScenarios.cs" />
     <Compile Include="IntegrationTests\TestBase.cs" />
     <Compile Include="IntegrationTests\GameRepositoryTests.cs" />
     <Compile Include="IntegrationTests\TestFixture.cs" />
