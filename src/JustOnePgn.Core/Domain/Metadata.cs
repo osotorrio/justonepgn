@@ -9,6 +9,7 @@ namespace JustOnePgn.Core.Domain
 
         public void Add(string line)
         {
+            line = line.Replace("[Result \"*\"]", "[Result \"1/2-1/2\"]"); // TODO: This logic is not unit tested
             _metadata.Add(line);
         }
 

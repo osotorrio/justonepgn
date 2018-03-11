@@ -26,7 +26,7 @@ namespace JustOnePgn.Core.Services
 
                 if (!isDuplicated && game.PlyCount >= 30)
                 {
-                    // TODO: do it transactional
+                    // TODO: Do it transactional
                     _writer.WriteGame(game);
                     _repo.Save(game);
                 }

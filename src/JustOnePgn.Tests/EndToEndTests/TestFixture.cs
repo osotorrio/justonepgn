@@ -11,6 +11,7 @@ namespace JustOnePgn.Tests.EndToEndTests
         internal static readonly string FolderWithOneFileTwoGames = $@"{Root}\FolderWithOneFileTwoGames";
         internal static readonly string FolderWithTwoFiles = $@"{Root}\FolderWithTwoFiles";
         internal static readonly string FolderWithNestedFiles = $@"{Root}\FolderWithNestedFiles";
+        internal static readonly string FolderWithOneFileWrongNotation = $@"{Root}\FolderWithOneFileWrongNotation";
 
         // Result
         internal static readonly string PathResultedPgn = $@"{Root}\ResultedFile\games.pgn";
@@ -19,5 +20,6 @@ namespace JustOnePgn.Tests.EndToEndTests
         // Expected
         internal static string ContentOfExpectedOneGame => File.ReadAllText($@"{Root}\ExpectedFiles\OneGame.pgn");
         internal static string ContentOfExpectedTwoGames => File.ReadAllText($@"{Root}\ExpectedFiles\TwoGames.pgn");
+        internal static string ContentOfWrongResultGames => File.ReadAllText($@"{Root}\ExpectedFiles\WrongResultGame.pgn");
     }
 }

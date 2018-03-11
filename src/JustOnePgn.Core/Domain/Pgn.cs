@@ -13,7 +13,9 @@ namespace JustOnePgn.Core.Domain
             _moves.Append(line);
         }
 
-        // TODO: Replaces ". " by "." Which one should be first replaced...\s{2,} or ._
-        public string Moves => Regex.Replace(_moves.ToString(), @"\s{2,}", " ").Replace(". ", ".");
+        public string Moves => Regex
+            .Replace(_moves.ToString(), @"\s{2,}", " ")
+            .Replace(". ", ".")
+            .Replace("*", "1/2-1/2");
     }
 }
