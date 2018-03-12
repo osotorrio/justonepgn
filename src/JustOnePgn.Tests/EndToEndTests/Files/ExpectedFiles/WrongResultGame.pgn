@@ -46,3 +46,17 @@
 
 1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3 dxc4 5.Bg2 c6 6.O-O b5 7.a4 Bb7 8.b3 cxb3 9.Qxb3 a6 10.Ba3 Bxa3 11.Nxa3 O-O 12.Rfc1 Nbd7 13.Nc4 c5 14.axb5 axb5 15.Rxa8 Qxa8 16.Nd6 Bd5 17.Qd1 cxd4 18.Qxd4 Qa3 19.Qf4 e5 20.Nxb5 Qb2#, Mate 
 
+[Event "Gibraltar Masters 2018"]
+[Site "Caleta ENG"]
+[Date "2018.01.29"]
+[Round "7.36"]
+[White "Tarjan, James E"]
+[Black "Papp, Gabor"]
+[Result "0-1"]
+[WhiteElo "2432"]
+[BlackElo "2607"]
+[ECO "A20"]
+[EventDate "2018.01.23"]
+
+1.c4 e5 2.g3 Nf6 3.Bg2 c6 4.d4 Bb4+ 5.Bd2 Bxd2+ 6.Qxd2 d6 7.Nc3 O-O 8.e3 exd4 9.Qxd4 Nbd7 10.Nf3 Qa5 11.O-O Ne5 12.b3 Bh3 13.Nh4 Bxg2 14.Kxg2 Rfe8 15.e4 Rad8 16.Rad1 b5 17.cxb5 cxb5 18.Nf5 b4 19.Nd5 Nxd5 20.Qxd5 Qxa2 21.Rd2 Qa6 22.f4 Ng4 23.Qd4 Nf6 24.e5 Qb7+ 25.Kg1 Ne4 26.exd6 f6 27.Re2 g6 28.Ne7+ Qxe7 29.dxe7 Rxd4 0-1 
+
