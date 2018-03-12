@@ -1,3 +1,26 @@
+[Event "65th ch-RUS"]
+[Site "Moscow RUS"]
+[Date "2012.08.07"]
+[Round "5"]
+[White "Dubov,Danii"]
+[Black "Potkin,V"]
+[Result "1/2-1/2"]
+[WhiteTitle "GM"]
+[BlackTitle "GM"]
+[WhiteElo "2594"]
+[BlackElo "2651"]
+[ECO "A05"]
+[Opening "Reti opening"]
+[WhiteFideId "24126055"]
+[BlackFideId "4131061"]
+[EventDate "2012.08.03"]
+[Variation "Fischer variation, 5.Ne2"]
+
+1. Nf3 Nf6 2. g3 d5 3. Bg2 c6 4. c4 dxc4 5. O-O Nbd7 6. Qc2 Nb6 7. Na3 Be6 8.
+Ng5 Bg4 9. Nxc4 Bxe2 10. Ne5 Bh5 11. Re1 h6 12. Ne4 e6 13. Nxf6+ gxf6 14. Nxc6
+bxc6 15. Bxc6+ Nd7 16. Qf5 Bg6 17. Rxe6+ Be7 18. Qxf6 Rg8 19. Re1 Kf8 20. Qf4
+Rc8 21. Qxh6+ Rg7 22. Qh8+ Rg8 23. Qh6+ Rg7 24. Qh8+ Rg8 1/2-1/2
+
 [Event "11th Kings Rapid women"]
 [Site "Medias ROU"]
 [Date "2017.11.27"]
@@ -32,24 +55,3 @@ Rd1 Qa6 28.Rxf7 Rxd6 29.Rxg7+ *
 9.Qxb3 a6 10.Ba3 Bxa3 11.Nxa3 O-O 12.Rfc1 Nbd7 13.Nc4 c5 14.axb5 axb5 15.
 Rxa8 Qxa8 16.Nd6 Bd5 17.Qd1 cxd4 18.Qxd4 Qa3 19.Qf4 e5 20.Nxb5 Qb2#, Mate
 
-[Event "65th ch-RUS"]
-[Site "Moscow RUS"]
-[Date "2012.08.07"]
-[Round "5"]
-[White "Dubov,Danii"]
-[Black "Potkin,V"]
-[Result "1/2-1/2"]
-[WhiteTitle "GM"]
-[BlackTitle "GM"]
-[WhiteElo "2594"]
-[BlackElo "2651"]
-[ECO "A05"]
-[Opening "Reti opening"]
-[WhiteFideId "24126055"]
-[BlackFideId "4131061"]
-[EventDate "2012.08.03"]
-
-1. Nf3 Nf6 2. g3 d5 3. Bg2 c6 4. c4 dxc4 5. O-O Nbd7 6. Qc2 Nb6 7. Na3 Be6 8.
-Ng5 Bg4 9. Nxc4 Bxe2 10. Ne5 Bh5 11. Re1 h6 12. Ne4 e6 13. Nxf6+ gxf6 14. Nxc6
-bxc6 15. Bxc6+ Nd7 16. Qf5 Bg6 17. Rxe6+ Be7 18. Qxf6 Rg8 19. Re1 Kf8 20. Qf4
-Rc8 21. Qxh6+ Rg7 22. Qh8+ Rg8 23. Qh6+ Rg7 24. Qh8+ Rg8 1/2-1/2

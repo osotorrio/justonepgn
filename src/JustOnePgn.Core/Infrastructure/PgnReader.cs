@@ -57,7 +57,7 @@ namespace JustOnePgn.Core.Infrastructure
 
         private static bool ContainsMoves(string line)
         {
-            return Regex.IsMatch(line, PgnRegex.Moves, RegexOptions.Singleline);
+            return !ContainsMetadata(line) && !string.IsNullOrWhiteSpace(line);
         }
 
         private static bool ContainsResultAtTheEnd(string line)
