@@ -19,7 +19,7 @@ CREATE TABLE [dbo].[Games](
 	[BlackElo] [int] NULL,
 	[Eco] [varchar](10) NULL,
 	[PlyCount] [int] NOT NULL,
-	[Metadata] [varchar](500) NOT NULL,
+	[Metadata] [varchar](600) NOT NULL,
 	[Moves] [varchar](5000) NOT NULL,
  CONSTRAINT [PK_Games] PRIMARY KEY CLUSTERED 
 (

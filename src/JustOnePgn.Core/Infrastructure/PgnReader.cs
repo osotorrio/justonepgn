@@ -45,6 +45,13 @@ namespace JustOnePgn.Core.Infrastructure
                             metadata = new Metadata();
                             pgn = new Pgn();
                         }
+
+                        if (!ContainsMetadata(line) && !ContainsMoves(line) 
+                            && !ContainsResultAtTheEnd(line) && !ContainsEmpty(line))
+                        {
+                            metadata = new Metadata();
+                            pgn = new Pgn();
+                        }
                     }
                 }
             }
@@ -57,12 +64,19 @@ namespace JustOnePgn.Core.Infrastructure
 
         private static bool ContainsMoves(string line)
         {
-            return !ContainsMetadata(line) && !string.IsNullOrWhiteSpace(line);
+            return Regex.IsMatch(line, PgnRegex.Moves, RegexOptions.Singleline) 
+                && !ContainsMetadata(line) 
+                && !string.IsNullOrWhiteSpace(line);
         }
 
         private static bool ContainsResultAtTheEnd(string line)
         {
             return Regex.IsMatch(line, PgnRegex.ResultAtTheEnd, RegexOptions.Singleline);
+        }
+
+        private static bool ContainsEmpty(string line)
+        {
+            return string.IsNullOrWhiteSpace(line);
         }
     }
 }
