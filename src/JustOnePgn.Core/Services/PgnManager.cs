@@ -9,26 +9,36 @@ namespace JustOnePgn.Core.Services
         private readonly IReadPgnFiles _reader;
         private readonly IWritePgnFiles _writer;
         private readonly IGameRepository _repo;
+        private readonly ILogger _logger;
 
-        public PgnManager(IReadPgnFiles reader, IWritePgnFiles writer, IGameRepository repo)
+        public PgnManager(IReadPgnFiles reader, IWritePgnFiles writer, IGameRepository repo, ILogger logger)
         {
             _reader = reader;
             _writer = writer;
             _repo = repo;
+            _logger = logger;
         }
 
         public void Execute(Action<Game> callback)
         {
             _reader.ReadGame(game =>
             {
-
                 var isDuplicated = _repo.IsDuplicated(game);
 
                 if (!isDuplicated && game.PlyCount >= 30)
                 {
-                    // TODO: Do it transactional
-                    _writer.WriteGame(game);
-                    _repo.Save(game);
+                    try
+                    {
+                        _logger.Info(game.Source);
+
+                        // TODO: Do it transactional
+                        _repo.Save(game);
+                        _writer.WriteGame(game);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.Error(ex, game.ToString());
+                    }
                 }
 
                 callback(game);

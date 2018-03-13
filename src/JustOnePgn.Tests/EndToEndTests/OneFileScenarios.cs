@@ -12,18 +12,17 @@ namespace JustOnePgn.Tests.EndToEndTests
     public class OneFileScenarios : TestBase
     {
         [Scenario]
-        public void OneGameTest(IReadPgnFiles reader, IWritePgnFiles writer, IGameRepository repo)
+        public void OneGameTest(IReadPgnFiles reader, IWritePgnFiles writer)
         {
             "GIVEN a single file with one game".x(() => 
             {
-                repo = Substitute.For<IGameRepository>();
                 reader = new PgnReader(TestFixture.FolderWithOneFileOneGame);
                 writer = new PgnWriter(TestFixture.PathResultedPgn);
             });
 
             "WHEN the file is read".x(() => 
             {
-                var manager = new PgnManager(reader, writer, repo);
+                var manager = new PgnManager(reader, writer, TestFixture.FakeRepo, TestFixture.FakeLogger);
                 manager.Execute(g => { });
             });
 
@@ -34,18 +33,17 @@ namespace JustOnePgn.Tests.EndToEndTests
         }
 
         [Scenario]
-        public void TwoGamesTest(IReadPgnFiles reader, IWritePgnFiles writer, IGameRepository repo)
+        public void TwoGamesTest(IReadPgnFiles reader, IWritePgnFiles writer)
         {
             "GIVEN a single file with two games".x(() =>
             {
-                repo = Substitute.For<IGameRepository>();
                 reader = new PgnReader(TestFixture.FolderWithOneFileTwoGames);
                 writer = new PgnWriter(TestFixture.PathResultedPgn);
             });
 
             "WHEN the file is read".x(() =>
             {
-                var manager = new PgnManager(reader, writer, repo);
+                var manager = new PgnManager(reader, writer, TestFixture.FakeRepo, TestFixture.FakeLogger);
                 manager.Execute(g => { });
             });
 

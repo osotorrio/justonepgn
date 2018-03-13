@@ -41,7 +41,7 @@ namespace JustOnePgn.Core.Infrastructure
 
                         if (ContainsResultAtTheEnd(line))
                         {
-                            returnGame(new Game(metadata, pgn));
+                            returnGame(new Game(metadata, pgn) { Source = file });
                             metadata = new Metadata();
                             pgn = new Pgn();
                         }

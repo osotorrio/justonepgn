@@ -45,6 +45,8 @@ namespace JustOnePgn.Core.Domain
 
         public string Metadata { get; set; }
 
+        public string Source { get; set; }
+
         public override string ToString()
         {
             var pgn = new StringBuilder();

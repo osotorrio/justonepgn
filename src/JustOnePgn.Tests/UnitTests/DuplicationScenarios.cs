@@ -26,7 +26,7 @@ namespace JustOnePgn.Tests.UnitTests
 
             "WHEN the game is processed".x(() =>
             {
-                manager = new PgnManager(fixture.FakeReader, fixture.FakeWriter, fixture.FakeRepo);
+                manager = new PgnManager(fixture.FakeReader, fixture.FakeWriter, fixture.FakeRepo, fixture.FakeLogger);
                 manager.Execute(g => { });
             });
 
@@ -59,7 +59,7 @@ namespace JustOnePgn.Tests.UnitTests
 
             "WHEN the game is processed".x(() =>
             {
-                manager = new PgnManager(fixture.FakeReader, fixture.FakeWriter, fixture.FakeRepo);
+                manager = new PgnManager(fixture.FakeReader, fixture.FakeWriter, fixture.FakeRepo, fixture.FakeLogger);
                 manager.Execute(g => { });
             });
 
@@ -92,7 +92,7 @@ namespace JustOnePgn.Tests.UnitTests
 
             "WHEN the game is processed".x(() =>
             {
-                manager = new PgnManager(fixture.FakeReader, fixture.FakeWriter, fixture.FakeRepo);
+                manager = new PgnManager(fixture.FakeReader, fixture.FakeWriter, fixture.FakeRepo, fixture.FakeLogger);
                 manager.Execute(g => { });
             });
 

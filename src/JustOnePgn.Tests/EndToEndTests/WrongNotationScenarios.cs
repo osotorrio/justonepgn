@@ -1,7 +1,6 @@
 ﻿using JustOnePgn.Core.Contracts;
 using JustOnePgn.Core.Infrastructure;
 using JustOnePgn.Core.Services;
-using NSubstitute;
 using Shouldly;
 using Xbehave;
 using Xunit;
@@ -12,18 +11,17 @@ namespace JustOnePgn.Tests.EndToEndTests
     public class WrongNotationScenarios : TestBase
     {
         [Scenario]
-        public void WrongResultNotationTest(IReadPgnFiles reader, IWritePgnFiles writer, IGameRepository repo)
+        public void WrongResultNotationTest(IReadPgnFiles reader, IWritePgnFiles writer)
         {
             "GIVEN a single file with wrong result notation".x(() =>
             {
-                repo = Substitute.For<IGameRepository>();
                 reader = new PgnReader(TestFixture.FolderWithOneFileWrongNotation);
                 writer = new PgnWriter(TestFixture.PathResultedPgn);
             });
 
             "WHEN the file is read".x(() =>
             {
-                var manager = new PgnManager(reader, writer, repo);
+                var manager = new PgnManager(reader, writer, TestFixture.FakeRepo, TestFixture.FakeLogger);
                 manager.Execute(g => { });
             });
 

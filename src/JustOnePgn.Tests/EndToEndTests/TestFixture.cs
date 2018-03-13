@@ -1,9 +1,15 @@
-﻿using System.IO;
+﻿using JustOnePgn.Core.Contracts;
+using NSubstitute;
+using System.IO;
 
 namespace JustOnePgn.Tests.EndToEndTests
 {
     public class TestFixture
     {
+        internal static IGameRepository FakeRepo => Substitute.For<IGameRepository>();
+
+        internal static ILogger FakeLogger => Substitute.For<ILogger>();
+
         private static string Root = @"C:\Projects\Github\osotorrio\justonepgn\src\JustOnePgn.Tests\EndToEndTests\Files";
 
         // Games
