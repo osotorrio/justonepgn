@@ -29,14 +29,13 @@ namespace JustOnePgn.Core.Services
                 {
                     try
                     {
-                        _logger.Info(game.Source);
-
                         // TODO: Do it transactional
                         _repo.Save(game);
                         _writer.WriteGame(game);
                     }
                     catch (Exception ex)
                     {
+                        _logger.Info(game.Source);
                         _logger.Error(ex, game.ToString());
                     }
                 }

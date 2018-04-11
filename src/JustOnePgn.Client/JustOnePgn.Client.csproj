@@ -48,5 +48,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JustOnePgn.Core\JustOnePgn.Core.csproj">
+      <Project>{8d1f8731-4111-49e3-bb0b-b4563bdd9fb2}</Project>
+      <Name>JustOnePgn.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
