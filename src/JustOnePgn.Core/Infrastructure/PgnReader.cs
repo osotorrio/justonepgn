@@ -38,6 +38,11 @@ namespace JustOnePgn.Core.Infrastructure
                         {
                             pgn.Add(line);
                         }
+                        
+                        if (ContainsResultAtTheEnd(line) && !ContainsMoves(line))
+                        {
+                            pgn.Add(line);
+                        }
 
                         if (ContainsResultAtTheEnd(line))
                         {
@@ -45,6 +50,7 @@ namespace JustOnePgn.Core.Infrastructure
                             metadata = new Metadata();
                             pgn = new Pgn();
                         }
+
 
                         if (!ContainsMetadata(line) && !ContainsMoves(line) 
                             && !ContainsResultAtTheEnd(line) && !ContainsEmpty(line))
