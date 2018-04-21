@@ -13,10 +13,10 @@ namespace JustOnePgn.Client
         {
             _start = DateTime.UtcNow;
 
-            var reader = new PgnReader(@"C:\Chess\PNGSources");
-            var writer = new PgnWriter(@"C:\Chess\db2018.pgn");
-            var repo = new GameRepository(@"Data Source=LENOVO-PC;Initial Catalog=ChessGamesDB;Integrated Security=True");
-            var logger = new Logger(@"C:\Chess\PNGSources\logs.txt");
+            var reader = new PgnReader(@"C:\Chess\Databases\MGP");
+            var writer = new PgnWriter(@"C:\Chess\Databases\db2018_v2.pgn");
+            var repo = new GameRepository(@"Data Source=LENOVO-PC;Initial Catalog=PlayGrandmasters;Integrated Security=True");
+            var logger = new Logger(@"C:\Chess\Databases\logs_v2.txt");
 
             var manager = new PgnManager(reader, writer, repo, logger);
 
@@ -36,7 +36,7 @@ namespace JustOnePgn.Client
                     moves = game.Moves;
                 }
 
-                Console.WriteLine($"{counter} = {game.GameId}: {moves}");
+                Console.WriteLine($"{counter} = {game.Hash}: {moves}");
             });
 
             _end = DateTime.UtcNow;

@@ -8,7 +8,7 @@ namespace JustOnePgn.Tests.IntegrationTests
 {
     internal class TestFixture
     {
-        internal static string ConnectionString => "Data Source=LENOVO-PC;Initial Catalog=ChessGamesDBTest;Integrated Security=True";
+        internal static string ConnectionString => "Data Source=LENOVO-PC;Initial Catalog=PlayGrandmastersIntegrationTests;Integrated Security=True";
 
         internal Game GetEmptyGame()
         {
@@ -43,11 +43,11 @@ namespace JustOnePgn.Tests.IntegrationTests
             return new Game(metadata, pgn);
         }
 
-        internal Game GetGameById(int gameId)
+        internal Game GetGameByHash(string hash)
         {
             using (var db = new SqlConnection(TestFixture.ConnectionString))
             {
-                return db.Query<Game>("SELECT * FROM Games WHERE GameId = @GameId;", new { GameId = gameId }).FirstOrDefault();
+                return db.Query<Game>("SELECT * FROM Games WHERE Hash = @Hash;", new { Hash = hash }).FirstOrDefault();
             }
         }
 
@@ -55,14 +55,16 @@ namespace JustOnePgn.Tests.IntegrationTests
         {
             using (var db = new SqlConnection(TestFixture.ConnectionString))
             {
-                var parameters = @"@GameId, @Event, @Year, 
+                var parameters = @"@Hash, @Event, @Year, 
                                    @White, @Black, @Result, 
                                    @WhiteElo, @BlackElo, @Eco, 
                                    @PlyCount, @Metadata, @Moves";
 
-                db.Execute($"INSERT INTO Games VALUES ({parameters});", new
+                db.Execute($@"INSERT INTO Games 
+                            (Hash, Event, Year, White, Black, Result, WhiteElo, BlackElo, Eco, PlyCount, Metadata, Moves) 
+                            VALUES ({parameters});", new
                 {
-                    game.GameId, game.Event, game.Year,
+                    game.Hash, game.Event, game.Year,
                     game.White, game.Black, game.Result,
                     game.WhiteElo, game.BlackElo, game.Eco,
                     game.PlyCount, game.Metadata, game.Moves

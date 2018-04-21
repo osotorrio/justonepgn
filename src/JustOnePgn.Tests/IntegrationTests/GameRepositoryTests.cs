@@ -48,10 +48,11 @@ namespace JustOnePgn.Tests.IntegrationTests
             repo.Save(expectedGame);
 
             // Assert
-            var actualGame = fixture.GetGameById(expectedGame.GameId);
+            var actualGame = fixture.GetGameByHash(expectedGame.Hash);
 
             actualGame.ShouldNotBeNull();
-            actualGame.GameId.ShouldBe(expectedGame.GameId);
+            actualGame.GameId.ShouldNotBe(0);
+            actualGame.Hash.ShouldBe(expectedGame.Hash);
             actualGame.Event.ShouldBe(expectedGame.Event);
             actualGame.White.ShouldBe(expectedGame.White);
             actualGame.Black.ShouldBe(expectedGame.Black);
@@ -76,10 +77,11 @@ namespace JustOnePgn.Tests.IntegrationTests
             repo.Save(expectedGame);
 
             // Assert
-            var actualGame = fixture.GetGameById(expectedGame.GameId);
+            var actualGame = fixture.GetGameByHash(expectedGame.Hash);
 
             actualGame.ShouldNotBeNull();
-            actualGame.GameId.ShouldBe(expectedGame.GameId);
+            actualGame.GameId.ShouldNotBe(0);
+            actualGame.Hash.ShouldBe(expectedGame.Hash);
             actualGame.Event.ShouldBe(expectedGame.Event);
             actualGame.White.ShouldBe(expectedGame.White);
             actualGame.Black.ShouldBe(expectedGame.Black);

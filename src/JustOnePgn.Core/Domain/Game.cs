@@ -1,4 +1,5 @@
 ﻿using JustOnePgn.Core.Contracts;
+using JustOnePgn.Core.Services;
 using System;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,13 @@ namespace JustOnePgn.Core.Domain
             {
                 SetupTagPair(tagPair);
             }
+
+            Hash = new HashService().GenerateSHA256String(Moves);
         }
 
-        public int GameId => Moves.GetHashCode();
+        public int GameId { get; private set; }
+
+        public string Hash { get; private set; }
 
         public string Event { get; private set; }
 

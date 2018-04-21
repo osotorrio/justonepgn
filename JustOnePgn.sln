@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbScripts", "DbScripts", "{45F50506-0FD2-48BB-947C-122255BA44CA}"
 	ProjectSection(SolutionItems) = preProject
 		CreateGamesTable.sql = CreateGamesTable.sql
+		CreateIndexes.sql = CreateIndexes.sql
 	EndProjectSection
 EndProject
 Global

@@ -20,7 +20,7 @@ namespace JustOnePgn.Core.Infrastructure
         {
             using (var db = new SqlConnection(_connectionString))
             {
-                return db.Query<int>("SELECT GameId FROM Games WHERE GameId = @GameId;", new { game.GameId }).FirstOrDefault() != 0;
+                return db.Query<int>("SELECT GameId FROM Games WHERE Hash = @Hash;", new { game.Hash }).FirstOrDefault() != 0;
             }
         }
 
@@ -28,14 +28,16 @@ namespace JustOnePgn.Core.Infrastructure
         {
             using (var db = new SqlConnection(_connectionString))
             {
-                var parameters = @"@GameId, @Event, @Year, 
+                var parameters = @"@Hash, @Event, @Year, 
                                    @White, @Black, @Result, 
                                    @WhiteElo, @BlackElo, @Eco, 
                                    @PlyCount, @Metadata, @Moves";
 
-                db.Execute($"INSERT INTO Games VALUES ({parameters});", new
+                db.Execute($@"INSERT INTO Games 
+                            (Hash, Event, Year, White, Black, Result, WhiteElo, BlackElo, Eco, PlyCount, Metadata, Moves) 
+                            VALUES ({parameters});", new
                 {
-                    game.GameId,
+                    game.Hash,
                     game.Event,
                     game.Year,
                     game.White,
