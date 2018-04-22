@@ -13,8 +13,15 @@ namespace JustOnePgn.Core.Domain
 
         public Game(IMetadata metadata, IPgn pgn)
         {
-            Metadata = string.Join(Environment.NewLine, metadata.Values);
             Moves = pgn.Moves;
+
+            // Adding PlyCount
+            if (!metadata.Values.Any(tag => tag.Contains("[PlyCount ")))
+            {
+                metadata.Values.Add($"[PlyCount \"{PlyCount}\"]");
+            }
+
+            Metadata = string.Join(Environment.NewLine, metadata.Values);
 
             foreach (var tagPair in metadata.Values)
             {

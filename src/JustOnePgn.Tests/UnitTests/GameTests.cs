@@ -32,7 +32,7 @@ namespace JustOnePgn.Tests.UnitTests
             metadata.Add(line);
             metadata.Add(line);
 
-            var newLineBetweenTags = $"{line}{Environment.NewLine}{line}";
+            var newLineBetweenTags = $"{line}{Environment.NewLine}{line}{Environment.NewLine}[PlyCount \"0\"]";
 
             // Act
             var game = new Game(metadata, new Pgn());
@@ -75,7 +75,7 @@ namespace JustOnePgn.Tests.UnitTests
             // Arrange
             var line = "[Event \"11th Kings Rapid women\"]";
             var moves = "1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3 dxc4 5.Bg2 c6 ";
-            var emptyLineInBetween = $"{line}{Environment.NewLine}{Environment.NewLine}{moves}";
+            var emptyLineInBetween = $"{line}{Environment.NewLine}[PlyCount \"10\"]{Environment.NewLine}{Environment.NewLine}{moves}";
 
             var metadata = new Metadata();
             metadata.Add(line);
