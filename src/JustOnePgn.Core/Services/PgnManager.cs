@@ -70,5 +70,26 @@ namespace JustOnePgn.Core.Services
                 callback(game);
             });
         }
+
+        public void VeryQuickExecute(Action<Game> callback)
+        {
+            _reader.ReadGame(game =>
+            {
+                if (game.PlyCount >= 30)
+                {
+                    try
+                    {
+                        _repo.Save(game);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.Info(game.Source);
+                        _logger.Error(ex, game.ToString());
+                    }
+                }
+
+                callback(game);
+            });
+        }
     }
 }

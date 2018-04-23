@@ -90,5 +90,11 @@ namespace JustOnePgn.Core.Infrastructure
                 return result == 1;
             }
         }
+
+        public void VeryQuickSave(Game game)
+        {
+            // We could save in memory (List<Game>) the maximum GB in a list and bulk all of it with Dapper
+            throw new NotImplementedException();
+        }
     }
 }

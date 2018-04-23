@@ -8,5 +8,7 @@ namespace JustOnePgn.Core.Contracts
         void Execute(Action<Game> callback);
 
         void QuickExecute(Action<Game> callback);
+
+        void VeryQuickExecute(Action<Game> callback);
     }
 }

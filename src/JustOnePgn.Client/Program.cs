@@ -22,7 +22,7 @@ namespace JustOnePgn.Client
 
             int counter = 0;
 
-            manager.QuickExecute(game =>
+            manager.VeryQuickExecute(game =>
             {
                 counter++;
 
