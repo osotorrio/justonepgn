@@ -21,7 +21,8 @@ namespace JustOnePgn.Client
             var manager = new PgnManager(reader, writer, repo, logger);
 
             int counter = 0;
-            manager.Execute(game =>
+
+            manager.QuickExecute(game =>
             {
                 counter++;
 

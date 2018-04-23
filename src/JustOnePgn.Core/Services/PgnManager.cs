@@ -43,5 +43,29 @@ namespace JustOnePgn.Core.Services
                 callback(game);
             });
         }
+
+        public void QuickExecute(Action<Game> callback)
+        {
+            _reader.ReadGame(game =>
+            {
+                try
+                {
+                    // TODO: Do it transactional
+                    var wasSaved = _repo.QuickSave(game);
+
+                    if (wasSaved)
+                    {
+                        _writer.WriteGame(game);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _logger.Info(game.Source);
+                    _logger.Error(ex, game.ToString());
+                }
+
+                callback(game);
+            });
+        }
     }
 }

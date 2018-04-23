@@ -7,6 +7,8 @@ namespace JustOnePgn.Core.Contracts
     {
         void Save(Game game);
 
+        bool QuickSave(Game game);
+
         bool IsDuplicated(Game game);
     }
 }
