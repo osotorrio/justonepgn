@@ -62,6 +62,7 @@
     <Compile Include="Contracts\ILogger.cs" />
     <Compile Include="Services\HashService.cs" />
     <Compile Include="Services\PgnManager.cs" />
+    <Compile Include="Services\SingletonHashService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

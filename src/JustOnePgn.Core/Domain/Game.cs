@@ -28,7 +28,7 @@ namespace JustOnePgn.Core.Domain
                 SetupTagPair(tagPair);
             }
 
-            Hash = new HashService().GenerateSHA256String(Moves);
+            Hash = Sha256Service.GetHash(Moves);
         }
 
         public int GameId { get; private set; }
