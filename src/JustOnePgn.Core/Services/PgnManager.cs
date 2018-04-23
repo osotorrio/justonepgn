@@ -48,20 +48,23 @@ namespace JustOnePgn.Core.Services
         {
             _reader.ReadGame(game =>
             {
-                try
+                if (game.PlyCount >= 30)
                 {
-                    // TODO: Do it transactional
-                    var wasSaved = _repo.QuickSave(game);
-
-                    if (wasSaved)
+                    try
                     {
-                        _writer.WriteGame(game);
+                        // TODO: Do it transactional
+                        var wasSaved = _repo.QuickSave(game);
+
+                        if (wasSaved)
+                        {
+                            _writer.WriteGame(game);
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    _logger.Info(game.Source);
-                    _logger.Error(ex, game.ToString());
+                    catch (Exception ex)
+                    {
+                        _logger.Info(game.Source);
+                        _logger.Error(ex, game.ToString());
+                    }
                 }
 
                 callback(game);
