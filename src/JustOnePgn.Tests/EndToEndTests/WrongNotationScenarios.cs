@@ -22,7 +22,7 @@ namespace JustOnePgn.Tests.EndToEndTests
             "WHEN the file is read".x(() =>
             {
                 var manager = new PgnManager(reader, writer, TestFixture.FakeRepo, TestFixture.FakeLogger);
-                manager.Execute(g => { });
+                manager.ExecuteCheckingForDuplicates(g => { });
             });
 
             "THEN the new file created contains two games".x(() =>

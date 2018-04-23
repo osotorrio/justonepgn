@@ -5,10 +5,8 @@ namespace JustOnePgn.Core.Contracts
 {
     public interface IPgnManager
     {
-        void Execute(Action<Game> callback);
+        void ExecuteCheckingForDuplicates(Action<Game> callback);
 
-        void QuickExecute(Action<Game> callback);
-
-        void VeryQuickExecute(Action<Game> callback);
+        void ExecuteWithoutCheckingForDuplicates(Action<Game> callback);
     }
 }

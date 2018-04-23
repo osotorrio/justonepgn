@@ -33,7 +33,6 @@ namespace JustOnePgn.Core.Infrastructure
             var log = new List<string>
             {
                 exception.Message,
-                exception.StackTrace,
                 Environment.NewLine,
                 text
             };

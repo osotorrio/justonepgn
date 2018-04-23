@@ -27,7 +27,7 @@ namespace JustOnePgn.Tests.UnitTests
             "WHEN the game is processed".x(() =>
             {
                 manager = new PgnManager(fixture.FakeReader, fixture.FakeWriter, fixture.FakeRepo, fixture.FakeLogger);
-                manager.Execute(g => { });
+                manager.ExecuteCheckingForDuplicates(g => { });
             });
 
             "THEN the same game is written".x(() =>
@@ -60,7 +60,7 @@ namespace JustOnePgn.Tests.UnitTests
             "WHEN the game is processed".x(() =>
             {
                 manager = new PgnManager(fixture.FakeReader, fixture.FakeWriter, fixture.FakeRepo, fixture.FakeLogger);
-                manager.Execute(g => { });
+                manager.ExecuteCheckingForDuplicates(g => { });
             });
 
             "THEN the game is not written".x(() =>
@@ -93,7 +93,7 @@ namespace JustOnePgn.Tests.UnitTests
             "WHEN the game is processed".x(() =>
             {
                 manager = new PgnManager(fixture.FakeReader, fixture.FakeWriter, fixture.FakeRepo, fixture.FakeLogger);
-                manager.Execute(g => { });
+                manager.ExecuteCheckingForDuplicates(g => { });
             });
 
             "THEN the game is not written".x(() =>

@@ -19,7 +19,7 @@ namespace JustOnePgn.Core.Services
             _logger = logger;
         }
 
-        public void Execute(Action<Game> callback)
+        public void ExecuteCheckingForDuplicates(Action<Game> callback)
         {
             _reader.ReadGame(game =>
             {
@@ -44,34 +44,7 @@ namespace JustOnePgn.Core.Services
             });
         }
 
-        public void QuickExecute(Action<Game> callback)
-        {
-            _reader.ReadGame(game =>
-            {
-                if (game.PlyCount >= 30)
-                {
-                    try
-                    {
-                        // TODO: Do it transactional
-                        var wasSaved = _repo.QuickSave(game);
-
-                        if (wasSaved)
-                        {
-                            _writer.WriteGame(game);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.Info(game.Source);
-                        _logger.Error(ex, game.ToString());
-                    }
-                }
-
-                callback(game);
-            });
-        }
-
-        public void VeryQuickExecute(Action<Game> callback)
+        public void ExecuteWithoutCheckingForDuplicates(Action<Game> callback)
         {
             _reader.ReadGame(game =>
             {
@@ -80,6 +53,7 @@ namespace JustOnePgn.Core.Services
                     try
                     {
                         _repo.Save(game);
+                        _writer.WriteGame(game);
                     }
                     catch (Exception ex)
                     {
