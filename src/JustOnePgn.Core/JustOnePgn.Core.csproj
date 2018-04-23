@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IGameRepository.cs" />
-    <Compile Include="Contracts\IHashStrings.cs" />
     <Compile Include="Contracts\IReadPgnFiles.cs" />
     <Compile Include="Contracts\IWritePgnFiles.cs" />
     <Compile Include="Domain\Game.cs" />
@@ -60,9 +59,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Contracts\IPgnManager.cs" />
     <Compile Include="Contracts\ILogger.cs" />
-    <Compile Include="Services\HashService.cs" />
+    <Compile Include="Services\Sha512Service.cs" />
     <Compile Include="Services\PgnManager.cs" />
-    <Compile Include="Services\SingletonHashService.cs" />
+    <Compile Include="Services\Sha256Service.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
