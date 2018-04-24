@@ -7,13 +7,17 @@ namespace JustOnePgn.Core.Infrastructure
 {
     public class Logger : ILogger
     {
-        private readonly string _logFile;
+        private readonly string _folder;
+        private string _file;
 
         private static string Separator => "================================================================================";
 
-        public Logger(string logFile)
+        public Logger(string folder)
         {
-            _logFile = logFile;
+            _folder = folder;
+            _file = Path.Combine(_folder, $"{DateTime.Now.ToString("yyyyMMddHHmmss")}.log");
+            var fileStream = File.Create(_file);
+            fileStream.Close();
         }
 
         public void Info(string text)
@@ -25,7 +29,8 @@ namespace JustOnePgn.Core.Infrastructure
                 Separator,
             };
 
-            File.AppendAllLines(_logFile, log);
+            SetLogFile();
+            File.AppendAllLines(_file, log);
         }
 
         public void Error(Exception exception, string text)
@@ -37,7 +42,16 @@ namespace JustOnePgn.Core.Infrastructure
                 text
             };
 
-            File.AppendAllLines(_logFile, log);
+            SetLogFile();
+            File.AppendAllLines(_file, log);
+        }
+
+        private void SetLogFile()
+        {
+            if (new FileInfo(_file).Length > 500000) // 0.5 GB = 500000 bytes
+            {
+                _file = Path.Combine(_folder, $"{DateTime.Now.ToString("yyyyMMddHHmmss")}.log");
+            }
         }
     }
 }
