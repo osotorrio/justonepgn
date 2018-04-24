@@ -14,9 +14,9 @@ namespace JustOnePgn.Client
             _start = DateTime.UtcNow;
 
             var reader = new PgnReader(@"C:\Chess\PNGSources");
-            var writer = new PgnWriter(@"C:\Chess\Databases\db2018_v2.pgn");
+            var writer = new PgnWriter(@"C:\Chess\Databases\db2018.pgn");
             var repo = new GameRepository(@"Data Source=LENOVO-PC;Initial Catalog=PlayGrandmasters;Integrated Security=True");
-            var logger = new Logger(@"C:\Chess\Databases\logs_v2.txt");
+            var logger = new Logger(@"C:\Chess\Databases\logs.txt");
 
             var manager = new PgnManager(reader, writer, repo, logger);
 
