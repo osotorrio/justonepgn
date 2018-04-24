@@ -48,7 +48,7 @@ namespace JustOnePgn.Core.Infrastructure
 
         private void SetLogFile()
         {
-            if (new FileInfo(_file).Length > 500000) // 0.5 GB = 500000 bytes
+            if (new FileInfo(_file).Length > 500000000) // 0.5 GB = 500.000.000 bytes
             {
                 _file = Path.Combine(_folder, $"{DateTime.Now.ToString("yyyyMMddHHmmss")}.log");
             }
